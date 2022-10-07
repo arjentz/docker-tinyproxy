@@ -1,9 +1,9 @@
 # Docker Tinyproxy ![alt text](https://raw.githubusercontent.com/daniel-middleton/docker-tinyproxy/master/other/banu_logo.png "Banu!")
 A quick and easy Dockerised Tinyproxy with configurable ACL.
 
-Find it on [GitHub](https://github.com/monokal/docker-tinyproxy).
+Find it on [GitHub](https://github.com/arjenz/docker-tinyproxy).
 
-Find it on [DockerHub](https://hub.docker.com/repository/docker/monokal/tinyproxy).
+Find it on [DockerHub](https://hub.docker.com/repository/docker/arjenz/tinyproxy).
 
 ### Usage
 ---
@@ -11,7 +11,7 @@ Find it on [DockerHub](https://hub.docker.com/repository/docker/monokal/tinyprox
 
 ```
 Usage:
-    docker run -d --name='tinyproxy' -p <Host_Port>:8888 --env BASIC_AUTH_USER=<username> --env BASIC_AUTH_PASSWORD=<password> --env TIMEOUT=<timeout> monokal/tinyproxy:latest <ACL>
+    docker run -d --name='tinyproxy' -p <Host_Port>:8888 --env BASIC_AUTH_USER=<username> --env BASIC_AUTH_PASSWORD=<password> --env TIMEOUT=<timeout> arjenz/tinyproxy:latest <ACL>
 
         - Set <Host_Port> to the port you wish the proxy to be accessible from.
         - Set <ACL> to 'ANY' to allow unrestricted proxy access, or one or more space seperated IP/CIDR addresses for tighter security.
@@ -19,9 +19,9 @@ Usage:
         - Timeout is optional.
 
     Examples:
-        docker run -d --name='tinyproxy' -p 6666:8888 monokal/tinyproxy:latest ANY
-        docker run -d --name='tinyproxy' -p 7777:8888 monokal/tinyproxy:latest 87.115.60.124
-        docker run -d --name='tinyproxy' -p 8888:8888 monokal/tinyproxy:latest 10.103.0.100/24 192.168.1.22/16
+        docker run -d --name='tinyproxy' -p 6666:8888 arjenz/tinyproxy:latest ANY
+        docker run -d --name='tinyproxy' -p 7777:8888 arjenz/tinyproxy:latest 87.115.60.124
+        docker run -d --name='tinyproxy' -p 8888:8888 arjenz/tinyproxy:latest 10.103.0.100/24 192.168.1.22/16
 ```
 
 ### Monitoring
@@ -36,7 +36,7 @@ Navigating to `http://tinyproxy.stats/` while connected to the proxy will displa
 Any Tinyproxy filter setting such as FilterDefaultDeny can be set as an environment variable.  You can map a filter file on the parent file system into the container for the proxy instance to use.
 
 ```
-        docker run -d --name='tinyproxy' -p 6666:8888 -v ~/filter-on-parent.conf:/etc/tinyproxy/filter.conf  --env Filter="/etc/tinyproxy/filter.conf" --env FilterDefaultDeny=Yes  monokal/tinyproxy:latest ANY
+        docker run -d --name='tinyproxy' -p 6666:8888 -v ~/filter-on-parent.conf:/etc/tinyproxy/filter.conf  --env Filter="/etc/tinyproxy/filter.conf" --env FilterDefaultDeny=Yes  arjenz/tinyproxy:latest ANY
 ```
 
 ### Contribute
